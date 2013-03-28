@@ -38,7 +38,7 @@ describe 'Lua scripts for redisExpLock', () ->
           (err, result) ->
             redisClient.pttl 'testKey', (err, result) ->
               result.should.not.be.below 0
-              result.should.not.be.above @ttl
+              result.should.not.be.above ttl
               done()
 
     describe "with key that already exists", (done) ->

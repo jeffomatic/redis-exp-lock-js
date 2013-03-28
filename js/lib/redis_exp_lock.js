@@ -48,7 +48,7 @@
         args: lockValue
       };
       shavaluator = new Shavaluator();
-      shavaluator.load(luaCommands);
+      shavaluator.add(luaCommands);
       shavaluator.redis = lockOpts.redis;
       attemptAcquire = function() {
         return shavaluator.setnx_pexpire(setnx_pexpire_args, function(err, result) {

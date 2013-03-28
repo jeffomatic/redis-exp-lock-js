@@ -14,7 +14,7 @@
 
   shavaluator = new Shavaluator;
 
-  shavaluator.load(require('../lib/redis_lua'));
+  shavaluator.add(require('../lib/redis_lua'));
 
   describe('Lua scripts for redisExpLock', function() {
     before(function() {
@@ -45,7 +45,7 @@
           }, function(err, result) {
             return redisClient.pttl('testKey', function(err, result) {
               result.should.not.be.below(0);
-              result.should.not.be.above(this.ttl);
+              result.should.not.be.above(ttl);
               return done();
             });
           });

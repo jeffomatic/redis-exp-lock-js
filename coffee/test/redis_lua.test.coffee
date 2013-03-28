@@ -10,7 +10,7 @@ testHelper = require('./test_helper')
 # See PROJECT/test/redis.sample.json for an example.
 redisClient = null
 shavaluator = new Shavaluator
-shavaluator.load require('../lib/redis_lua')
+shavaluator.add require('../lib/redis_lua')
 
 describe 'Lua scripts for redisExpLock', () ->
 

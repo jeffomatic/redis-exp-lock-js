@@ -58,7 +58,7 @@ module.exports = (opts) ->
       args: lockValue
 
     shavaluator = new Shavaluator()
-    shavaluator.load luaCommands
+    shavaluator.add luaCommands
     shavaluator.redis = lockOpts.redis
 
     attemptAcquire = () ->

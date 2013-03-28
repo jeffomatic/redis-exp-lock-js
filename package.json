@@ -1,6 +1,6 @@
 {
   "name": "redis-exp-lock",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Distributed lock using Redis and Lua",
   "keywords": [ "redis", "distributed", "lock", "mutex", "lua" ],
   "author": "Jeff Lee <jeffomatic@gmail.com>",
@@ -19,7 +19,7 @@
   ],
   "main": "./js/lib/redis_exp_lock",
   "dependencies": {
-    "shavaluator": "~0.0.1",
+    "shavaluator": "~0.0.2",
     "underscore": "~1.4.4",
     "uuid": "~1.4.0"
   },

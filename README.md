@@ -16,11 +16,11 @@ for precise time synchronization between your application hosts.
 redis = require('redis');
 redisExpLock = require('redis-exp-lock');
 
-# Configure a lock function
+// Configure a lock function
 withLock = redisExpLock({redis: redis.createClient()});
 
-# Use the lock function to provide mutual exclusion.
-withLock(function(err, critSecDone){
+// Use the lock function to provide mutual exclusion.
+withLock(function(err, critSecDone) {
   if (err) throw err;
   doStuffThatShouldNotBeInterrupted();
   critSecDone();

@@ -92,11 +92,11 @@ Locks are acquired by setting a Redis key with a UUID generated immediately prio
 1. Use `SETNX` to set the value of the given key to the UUID.
 2. If `SETNX` was successful, use `PEXPIRE` to set a lifetime on the key, managed by Redis.
 
-Since the Redis server manages the lifetime, there is no need for any client-side logic for managing lock expiration, and thus no need to ensure that clients are time-synchronized.
+Since the Redis server manages the lifetime, there is no need for any client-side logic that deals with lock expiration, and thus no need to ensure that clients are time-synchronized.
 
 #### Lock release
 
-Locks are released by deleting the Redis key, **if and only if** the key's value matches the UUID generated during a successful lock attempt. A Lua script provides the following atomic sequence:
+Locks are released by deleting the Redis key, **only if** the key's value matches the UUID generated during a successful lock attempt. A Lua script provides the following atomic sequence:
 
 1. `GET` the value of the key.
 2. If the value of the key is the same as the UUID, then use `DEL` to remove the key.

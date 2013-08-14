@@ -65,8 +65,9 @@ The lock function takes two or three arguments:
 
 * A **Redis key** where the lock will be stored. This is most likely the name of the resource you are trying to lock.
 * An optional **settings object**, with overrides to the original lock configuration.
-* A **callback** that takes two arguments:
+* A **callback** that takes three arguments:
     * An **error** object. This is null if the lock attempt was successful.
+    * A **retries** count. Shows how many attempts were spent before the lock was succesfully acquired.
     * A **release function**, to be called in your application code after the critical section has completed. This will cause the lock to be released. Since the release function is itself asynchronous, you can pass it a callback that will be invoked when the release has been confirmed.
 
 ```js

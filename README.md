@@ -72,7 +72,7 @@ The lock function takes two or three arguments:
 ```js
 withLock = redisExpLock({redis: redis.createClient(), maxRetries: 2});
 
-withLock('bankAccount', function(err, critSecDone) {
+withLock('bankAccount', function(err, retries, critSecDone) {
   if (err) return;
   bankAccount.addMoney(100000);
 

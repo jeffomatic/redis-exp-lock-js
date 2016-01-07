@@ -20,7 +20,7 @@ redisExpLock = require('redis-exp-lock');
 withLock = redisExpLock({redis: redis.createClient()});
 
 // Use the lock function to provide mutual exclusion.
-withLock('lockName', function(err, critSecDone) {
+withLock('lockName', function(err, retries, critSecDone) {
   if (err) throw err;
   doStuffThatShouldNotBeInterrupted();
   critSecDone();
